@@ -11,14 +11,10 @@
 </template>
 
 <script>
-  import { JotaRouter } from '../../services/JotaRouter'
   import { localizedFromIso } from '../../services/date-utils'
 
   export default {
     props: {day: Object, isLoading: Boolean},
-    created() {
-      this.jotaRouter = new JotaRouter(this.$router)
-    },
     methods: {
       goTo(gig) {
         this.jotaRouter.navigateToGig(gig.id)

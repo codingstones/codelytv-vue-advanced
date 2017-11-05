@@ -1,9 +1,8 @@
-const navigateToGigMock = jest.fn()
-const RouterMock = { navigateToGig: navigateToGigMock }
-
-const JotaRouter = (history)=> {
-  return RouterMock
-}
+const getParam = () => 'any id'
+const navigateToAllGigs = jest.fn()
+const navigateToGig = jest.fn()
 module.exports = {
-  JotaRouter: JotaRouter
+  JotaRouter: () => {
+    return { getParam, navigateToAllGigs, navigateToGig }
+  }
 }

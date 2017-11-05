@@ -34,7 +34,6 @@
   import DateTimeInput from '../../shared-components/DateTimeInput.vue'
   import { isFutureDatetime } from './customValidations'
   import { createGigPayload } from '../../services/jota-payloads'
-  import { JotaRouter } from '../../services/JotaRouter'
 
   export default {
     props: {
@@ -49,9 +48,6 @@
         required,
         isFutureDatetime
       }
-    },
-    created() {
-      this.jotaRouter = new JotaRouter(this.$router)
     },
     data () {
       return {
