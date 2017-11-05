@@ -1,23 +1,14 @@
-<template>
-  <!--<q-card @click="onClick(gig)" :key="gig.id" highlight link striped>-->
-    <!--{{gig.title}} <br/> {{gig.place}}-->
-  <!--</q-card>-->
-  <q-card @click="onClick(gig)" highlight>
+<template functional>
+  <q-card @click="props.onClick(props.gig)">
     <q-item>
-      <q-item-side :image="gig.image_url" />
+      <q-item-side :image="props.gig.image_url" />
       <q-item-main>
-        <q-item-tile label>{{gig.title}}</q-item-tile>
-        <q-item-tile sublabel>{{gig.place}}</q-item-tile>
+        <q-item-tile label>{{props.gig.title}}</q-item-tile>
+        <q-item-tile sublabel>{{props.gig.place}}</q-item-tile>
       </q-item-main>
     </q-item>
   </q-card>
 </template>
-
-<script>
-  export default {
-    props: { gig: Object, onClick: Function }
-  }
-</script>
 
 <style lang="stylus" type="text/stylus">
   .q-item:hover {
