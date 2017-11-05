@@ -28,6 +28,7 @@ import {
 } from 'quasar-framework'
 import LoadSpinner from '@/app/shared-components/LoadSpinner.vue'
 import FormButton from '@/app/shared-components/FormButton.vue'
+import BackToTopButton from '@/app/shared-components/BackToTopButton.vue'
 import SideBar from '@/app/shared-components/SideBar.vue'
 import Toolbar from '@/app/shared-components/Toolbar.vue'
 import GigRow from '@/app/pages/Days/GigRow.vue'
@@ -63,6 +64,7 @@ export function registerGlobalComponents() {
   Vue.component('QLayout', QLayout)
   Vue.component('QSpinnerMat', QSpinnerMat)
   Vue.component('FormButton', FormButton)
+  Vue.component('BackToTopButton', BackToTopButton)
   Vue.component('Toolbar', Toolbar)
   Vue.component('SideBar', SideBar)
 }
