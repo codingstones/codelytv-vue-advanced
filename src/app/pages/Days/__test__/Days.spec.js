@@ -1,6 +1,6 @@
 import { mount } from 'vue-test-utils'
 import Days from '@/app/pages/Days/Days.vue'
-import { FIRST_DAY, DAY_LIST } from '../../../services/__mocks__/gigs-sample'
+import { FIRST_DAY, DAY_LIST, fakeGigsByDay } from '../../../services/__mocks__/gigs-sample'
 import DayListPage from '../../../__page_objects__/DaysPageObject'
 import { cloneProductionStore } from '../../../../../test/helpers'
 import { localizedFromIso } from '../../../services/date-utils'
@@ -11,7 +11,9 @@ describe('Days', () => {
 
   let page, wrapper
   beforeEach(async () => {
-    wrapper = mount(Days, { store: cloneProductionStore() })
+    const store = cloneProductionStore()
+    store.state.days = fakeGigsByDay
+    wrapper = mount(Days, { store })
     page = new DayListPage(wrapper)
   })
 

@@ -1,7 +1,7 @@
 <template>
   <div class="full-width">
-    <LoadSpinner :isLoading="isLoading"/>
-    <div v-for="day in gigsByDay" v-if="!isLoading">
+    <LoadSpinner :loading="loading"/>
+    <div v-for="day in days" v-if="!loading">
       <Day :day="day"/>
     </div>
     <BackToTopButton/>
@@ -9,33 +9,9 @@
 </template>
 
 <script>
-  import { mapState, mapActions } from 'vuex'
-  import { retrieveDays } from '../../services/jota-api'
+  import { mapState } from 'vuex'
 
   export default {
-    props: {
-      retrieveDays: {
-        default: () => retrieveDays
-      }
-    },
-    data () {
-      return {
-        gigsByDay: [],
-        isLoading: false
-      }
-    },
-    async created() {
-      this.isLoading = true
-      // Without vuex action
-      this.gigsByDay = await this.retrieveDays
-      // With vuex action
-      await this.retrieve_days()
-      this.gigsByDay = this.days
-      this.isLoading = false
-    },
-    methods: {
-      ...mapActions(['retrieve_days'])
-    },
     computed: {
       ...mapState(['days'])
     }

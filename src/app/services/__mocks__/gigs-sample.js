@@ -5,10 +5,10 @@ export const fakeGigsByDay =
       'gigs': [
         {
           'id': '123456',
-          'title': 'Anarchy in the JS',
+          'title': 'Anarchy in the Jota S',
           'lat_lng': '41.641851935961654,-0.8751129897638315',
           'address': 'BCN',
-          'description': 'Coding Stones Gig',
+          'description': 'Coding Stones cantando Joticas',
           'price': '',
           'image_url': 'http://www.zaragoza.es/cont/paginas/actividades/imagen/web_320x480px.png',
           'place': 'SCBCN',
@@ -23,16 +23,16 @@ export const fakeGigsByDay =
               'hour': '19:30',
               'gig_id': 5927,
               'created_at': '2017-09-07T15:57:35.419Z',
-              'updated_at': '2017-09-07T15:57:35.419Z',
-            },
-          ],
+              'updated_at': '2017-09-07T15:57:35.419Z'
+            }
+          ]
         },
         {
           'id': '2222222',
-          'title': 'Vegan Microservices',
+          'title': 'Jotas de Codely TV',
           'lat_lng': '41.641851935961654,-0.8751129897638315',
           'address': 'BCN',
-          'description': 'Another Coding Stones Gig',
+          'description': 'Javi y Rafa cantando jotas',
           'price': '',
           'image_url': 'http://www.wtf.es/wtf.png',
           'affiliate_url': null,
@@ -48,13 +48,13 @@ export const fakeGigsByDay =
               'hour': '19:30',
               'gig_id': 5927,
               'created_at': '2017-09-07T15:57:35.419Z',
-              'updated_at': '2017-09-07T15:57:35.419Z',
-            },
+              'updated_at': '2017-09-07T15:57:35.419Z'
+            }
           ]
         }
-      ],
-    },
-}
+      ]
+    }
+  }
 
 export const FIRST_DAY = fakeGigsByDay[Object.keys(fakeGigsByDay)[0]]
 export const FIRST_GIG = FIRST_DAY.gigs[0]

@@ -3,6 +3,7 @@
     <q-layout ref="layout">
       <Toolbar slot="header" @drawerClick="clickDrawer()"></Toolbar>
       <SideBar slot="left"></SideBar>
+      <LoadSpinner :isLoading="loading"/>
       <q-transition
         name="custom">
         <router-view class="layout-view"/>
@@ -13,15 +14,21 @@
 
 <script>
 import { registerGlobalComponents } from './app/GlobalComponentsLoader'
-// eslint-disable-next-line no-unused-vars
-import { NEW_GIG_PATH } from './router'
+import { mapActions, mapState } from 'vuex'
 
 registerGlobalComponents()
 export default {
   methods: {
+    ...mapActions(['retrieve_days']),
     clickDrawer() {
       this.$refs.layout.toggleLeft()
     }
+  },
+  async mounted() {
+    await this.retrieve_days()
+  },
+  computed: {
+    ...mapState(['days', 'loading'])
   }
 }
 </script>
