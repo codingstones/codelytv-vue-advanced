@@ -1,7 +1,7 @@
 
 import { fetchDaysError, fetchDaysRequest, fetchDaysSuccess } from '../days-mutations'
 
-describe('Mutations', () => {
+describe('Days Mutations', () => {
 
   let state
   let OLD_DAYS

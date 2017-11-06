@@ -5,7 +5,7 @@ let fakeDays = gigService.retrieveNextGigs()
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 export function retrieveDays() {
-  return delay(1500).then(() => fakeDays)
+  return delay(2000).then(() => fakeDays)
 }
 
 export function retrieveAGig(gigId) {

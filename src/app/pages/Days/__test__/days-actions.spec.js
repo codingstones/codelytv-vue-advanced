@@ -5,7 +5,7 @@ import {
 import { rejectedPromise, resolvedPromise } from '../../../../../test/helpers'
 import { retrieveDaysAction } from '../days-actions'
 
-describe('Vuex actions', () => {
+describe('Days actions', () => {
 
   let action
   let commitSpy

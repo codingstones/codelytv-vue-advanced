@@ -5,7 +5,7 @@ import {
 import { rejectedPromise, resolvedPromise } from '../../../../../test/helpers'
 import { CREATE_GIG_ERROR, CREATE_GIG_REQUEST, CREATE_GIG_SUCCESS } from '../new-gig-mutations';
 
-describe('Vuex actions', () => {
+describe('New Gig actions', () => {
 
   let action
   let commitSpy

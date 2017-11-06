@@ -13,7 +13,7 @@
 
 <script>
 import { registerGlobalComponents } from './app/GlobalComponentsLoader'
-import { mapActions, mapState } from 'vuex'
+import { mapActions } from 'vuex'
 import { Loading } from 'quasar-framework'
 
 registerGlobalComponents()
@@ -28,9 +28,6 @@ export default {
     Loading.show({message: 'Looking for the best Jotas in your area...'})
     await this.retrieve_days()
     Loading.hide()
-  },
-  computed: {
-    ...mapState(['days', 'loading'])
   }
 }
 </script>
