@@ -40,7 +40,8 @@ export const getters = {
   numberOfGigsToday: numberOfGigsToday,
   numberOfGigsTomorrow: numberOfGigsTomorrow,
   gigsToday: gigsToday,
-  gigsTomorrow: gigsTomorrow
+  gigsTomorrow: gigsTomorrow,
+  paramId: state => state.route.params.id
 }
 
 export const store = new Vuex.Store({

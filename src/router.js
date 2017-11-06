@@ -8,6 +8,7 @@ function load (component) {
   return () => import(`@/app/pages/${component}.vue`)
 }
 import Days from '@/app/pages/Days/Days.vue'
+import GigDetail from '@/app/pages/GigDetail/GigDetail.vue'
 import NewGig from '@/app/pages/NewGig/NewGig'
 import GigsToday from '@/app/pages/GigsToday/GigsToday'
 import GigsTomorrow from '@/app/pages/GigsTomorrow/GigsTomorrow'
@@ -34,7 +35,7 @@ const router = new VueRouter({
     { path: ALL_GIGS_PATH, component: Days, title: 'all' },
     { path: '/today', component: GigsToday, title: 'today' },
     { path: '/tomorrow', component: GigsTomorrow, title: 'tomorrow' },
-    { path: '/gig/:id', component: load('GigDetail'), title: 'gig' },
+    { path: '/gig/:id', component: GigDetail, title: 'gig' },
     { path: NEW_GIG_PATH, component: NewGig, title: 'newGig' },
     { path: '*', component: load('Error404') }
   ],

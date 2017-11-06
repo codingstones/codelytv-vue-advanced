@@ -54,7 +54,7 @@ export function stubDate(isoDate) {
 
 export function Wrap(component) {
 
-  return {mount, shallow, withProps, withSlots, withRouter, withStore, config}
+  return {mount, shallow, withProps, withSlots, withRouter, withStore, withParamId, config}
 
   function withProps(props) {
     this.props = props
@@ -75,6 +75,11 @@ export function Wrap(component) {
 
   function withSlots(slots) {
     this.slots = slots
+    return this
+  }
+
+  function withParamId(id) {
+    component.methods.paramId = () => id
     return this
   }
 

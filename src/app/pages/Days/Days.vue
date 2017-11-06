@@ -1,7 +1,6 @@
 <template>
   <div class="full-width">
-    <LoadSpinner :loading="loading"/>
-    <div v-for="day in days" v-if="!loading">
+    <div v-for="day in days">
       <Day :day="day"/>
     </div>
     <BackToTopButton/>
