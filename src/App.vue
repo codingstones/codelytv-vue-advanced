@@ -3,7 +3,6 @@
     <q-layout ref="layout">
       <Toolbar slot="header" @drawerClick="clickDrawer()"></Toolbar>
       <SideBar slot="left"></SideBar>
-      <LoadSpinner :isLoading="loading"/>
       <q-transition
         name="custom">
         <router-view class="layout-view"/>
@@ -15,6 +14,7 @@
 <script>
 import { registerGlobalComponents } from './app/GlobalComponentsLoader'
 import { mapActions, mapState } from 'vuex'
+import { Loading } from 'quasar-framework'
 
 registerGlobalComponents()
 export default {
@@ -25,7 +25,9 @@ export default {
     }
   },
   async mounted() {
+    Loading.show({message: 'Looking for the best Jotas in your area...'})
     await this.retrieve_days()
+    Loading.hide()
   },
   computed: {
     ...mapState(['days', 'loading'])

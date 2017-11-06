@@ -24,7 +24,8 @@ import {
   QItemTile,
   QItemSeparator,
   QLayout,
-  QSpinnerMat
+  QSpinnerMat,
+  QSpinner
 } from 'quasar-framework'
 import LoadSpinner from '@/app/shared-components/LoadSpinner.vue'
 import FormButton from '@/app/shared-components/FormButton.vue'
@@ -63,6 +64,7 @@ export function registerGlobalComponents() {
   Vue.component('QItemSeparator', QItemSeparator)
   Vue.component('QLayout', QLayout)
   Vue.component('QSpinnerMat', QSpinnerMat)
+  Vue.component('QSpinner', QSpinner)
   Vue.component('FormButton', FormButton)
   Vue.component('BackToTopButton', BackToTopButton)
   Vue.component('Toolbar', Toolbar)
