@@ -105,23 +105,6 @@ describe('New Gig', () => {
     })
   })
 
-  it('creates a GIG in the store when save button is clicked', async () => {
-    let actionSpy = jest.fn()
-    let store = new Vuex.Store({
-      state: {days: [], loading: false},
-      actions: { create_gig: actionSpy }
-    })
-    wrapper = mount(NewGig, { store, router: new VueRouter() })
-    page = new NewGigPage(wrapper, {store})
-
-    page.writeNameAsync(nameWithValidLength())
-    page.writeDatetime(FUTURE_DATETIME)
-    await page.wait()
-    page.clickSaveButton()
-
-    expect(actionSpy).toHaveBeenCalled()
-  })
-
   describe('When clicking save button', async () => {
     let store
     beforeEach(async () => {

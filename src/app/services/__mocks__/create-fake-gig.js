@@ -79,7 +79,7 @@ function randomTitle() {
 }
 
 const firstTerm = [
-  'Grupo', 'Agrupación', 'Amigos', 'Folklore', 'Colectivo', 'Banda', 'Ronda', 'Rondalla', 'Escuela'
+  'Grupo', 'Agrupación', 'Amigos', 'Folklore', 'Colectivo', 'Banda', 'Ronda', 'Rondalla', 'Escuela', 'Dulzaineros'
 ]
 
 const secondTerm = [
