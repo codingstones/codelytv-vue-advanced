@@ -1,22 +1,37 @@
-# Jota JS Quasar
+# JotasJS Advanced
 
-> A Quasar project
+> Demo project for the CodelyTV Pro video course `Testing unidirectional dataflow with Vuex and Jest` you may find in: [Testing unidirectional dataflow con Vuex y Jest](https://pro.codely.tv/library/testing-unidirectional-dataflow-vuex-y-jest/65210/path/)
 
-## Build Setup
+_Note that although all the videos and course contents are in Spanish, this repo is only available in English._
+
+## Getting Started!
 
 ``` bash
 # install dependencies
-$ npm install
+$ yarn install
 
 # run tests
 $ jest --watch
 
 # serve with hot reload at localhost:8080
-$ yarn dev
+$ yarn dev mat
+
+# 'mat' was the material theme, try iOS with
+$ yarn dev ios
 
 # build for production with minification
 $ quasar build
-
-# lint code
-$ quasar lint
 ```
+
+## Going Mobile!
+
+You may want to wrap the App into a native mobile App. Given you already have Cordova and an Android or iOS SDK installed in your system, run:
+
+
+```
+quasar wrap cordova
+cordova platform add android
+cordova run android
+```
+
+For full details, take a look to the Quasar [guide](http://quasar-framework.org/guide/cordova-wrapper.html).
