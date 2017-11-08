@@ -21,6 +21,7 @@ export function retrieveDaysAction(retrieveDays) {
     }
     catch (error) {
       commit(FETCH_DAYS_ERROR, error)
+      throw error
     }
   }
 }

@@ -9,8 +9,6 @@ describe('New Gig actions', () => {
 
   let action
   let commitSpy
-  const backendError = Error('Backend Error')
-
   beforeEach(() => {
     commitSpy = jest.fn()
   })
@@ -29,13 +27,19 @@ describe('New Gig actions', () => {
     })
 
     it('finishes with error', async () => {
+      const backendError = Error('Backend Error')
       const createGig = rejectedPromise(backendError)
       action = createGigAction(createGig)
 
-      await action.run({ commit: commitSpy }, 'any gig')
+      expect.assertions(3)
 
-      expect(commitSpy).toHaveBeenCalledWith(CREATE_GIG_REQUEST)
-      expect(commitSpy).toHaveBeenCalledWith(CREATE_GIG_ERROR, backendError)
+      try {
+        await action.run({commit: commitSpy}, 'any gig')
+      } catch (error) {
+        expect(commitSpy).toHaveBeenCalledWith(CREATE_GIG_REQUEST)
+        expect(commitSpy).toHaveBeenCalledWith(CREATE_GIG_ERROR, backendError)
+        expect(error).toBe(backendError)
+      }
     })
   })
 })

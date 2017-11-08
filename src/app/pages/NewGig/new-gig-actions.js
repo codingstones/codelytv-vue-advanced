@@ -17,7 +17,7 @@ export function createGigAction(createGig) {
     }
     catch (error) {
       commit(CREATE_GIG_ERROR, error)
-      return error
+      throw error
     }
   }
 }

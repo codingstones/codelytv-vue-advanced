@@ -9,8 +9,6 @@ describe('Days actions', () => {
 
   let action
   let commitSpy
-  const backendError = Error('Backend Error')
-
   beforeEach(() => {
     commitSpy = jest.fn()
   })
@@ -29,13 +27,20 @@ describe('Days actions', () => {
     })
 
     it('finishes with error', async () => {
+      const backendError = Error('Backend Error')
       const retrieveDays = rejectedPromise(backendError)
       action = retrieveDaysAction(retrieveDays)
 
-      await action.run({ commit: commitSpy })
+      expect.assertions(3)
 
-      expect(commitSpy).toHaveBeenCalledWith(FETCH_DAYS_REQUEST)
-      expect(commitSpy).toHaveBeenCalledWith(FETCH_DAYS_ERROR, backendError)
+      try {
+        await action.run({ commit: commitSpy })
+      } catch (error) {
+        expect(commitSpy).toHaveBeenCalledWith(FETCH_DAYS_REQUEST)
+        expect(commitSpy).toHaveBeenCalledWith(FETCH_DAYS_ERROR, backendError)
+        expect(error).toBe(backendError)
+      }
+
     })
   })
 })
