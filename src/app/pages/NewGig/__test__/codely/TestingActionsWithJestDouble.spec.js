@@ -5,7 +5,7 @@ import { createGig as createGigSpy } from '../../../../services/jota-api'
 jest.mock('@/app/services/jota-api')
 import { createGigPayload } from '../../../../services/jota-payloads'
 
-describe('New Gig', () => {
+xdescribe('New Gig', () => {
   const FUTURE_DATETIME = '3000/10/27'
 
   describe('When clicking save button', async () => {

@@ -2,12 +2,10 @@ import { mount } from 'vue-test-utils'
 import NewGig from '@/app/pages/NewGig/NewGig.vue'
 import NewGigPage from '../../../__page_objects__/NewGigPageObject'
 import { cloneProductionStore, Wrap } from '../../../../../test/helpers'
-import Vuex from 'vuex'
 import { createGig as createGigSpy } from '../../../services/jota-api'
 // The only double that we need to mock
 jest.mock('@/app/services/jota-api')
 import { createGigPayload } from '../../../services/jota-payloads'
-import VueRouter from 'vue-router'
 
 describe('New Gig', () => {
   const PAST_DATETIME = '1900/10/27'
@@ -120,14 +118,16 @@ describe('New Gig', () => {
       page.clickSaveButton()
       await page.wait()
     })
-    it('creates a GIG in the store', async () => {
+
+    xit('creates a GIG in the store', async () => {
       expect(store.state.days[FUTURE_DATETIME]).toBeDefined()
     })
+
     it('navigates to all gigs route', async () => {
       page.checkCurrentPath(store, '/all')
     })
 
-    it('calls backend with appropriate command', async () => {
+    xit('calls backend with appropriate command', async () => {
       // This will be also tested in happy path but in this integration tests we can check all strange cases
       // faster and cheaper
       expect(createGigSpy).toHaveBeenCalledWith(createGigPayload(nameWithValidLength(), FUTURE_DATETIME))

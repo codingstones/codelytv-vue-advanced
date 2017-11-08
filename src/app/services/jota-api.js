@@ -14,6 +14,9 @@ export function retrieveAGig(gigId) {
 
 export function createGig(payload) {
   addGigToFakeSample(payload)
+  if (!payload.hasOwnProperty('day')) {
+    return Promise.reject(Error('SERVER ERROR'))
+  }
   return delay(1000).then(() => payload)
 }
 
