@@ -1,26 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Gig Detail matches snapshot 1`] = `
-<div class="full-width" style="">
-    <div class="q-card">
-        <div class="q-card-primary q-card-container row no-wrap">
-            <div class="col column">
-                <div class="q-card-title">
-                    <h3>Anarchy in the Jota S</h3>
+<div>
+    <!---->
+    <div class="full-width v-enter animated fadeIn" style="">
+        <div class="q-card">
+            <div class="q-card-primary q-card-container row no-wrap">
+                <div class="col column">
+                    <div class="q-card-title">
+                        <h3>Anarchy in the Jota S</h3>
+                    </div>
+                    <div class="q-card-subtitle"></div>
                 </div>
-                <div class="q-card-subtitle"></div>
+                <div class="col-auto self-center q-card-title-extra"></div>
             </div>
-            <div class="col-auto self-center q-card-title-extra"></div>
+            <div class="q-card-main q-card-container">
+                <!---->
+                <div class="block"><strong>Lunes, 18 De Septiembre</strong> a las <strong>19:30 h.</strong></div> <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-secondary text-white"><div class="desktop-only q-focus-helper"></div> <!----> <span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon material-icons">event</i>  Add it to your calendar  <!----></span></button>
+                <div class="block">
+                    <h4>SCBCN</h4> <span>BCN</span></div> <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-secondary text-white"><div class="desktop-only q-focus-helper"></div> <!----> <span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon material-icons">directions</i> How to get there?  <!----></span></button>                <br><br>
+                <div class="block">
+                    Coding Stones cantando Joticas
+                </div> <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-secondary text-white"><div class="desktop-only q-focus-helper"></div> <!----> <span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon material-icons">share</i> Share it with your friends  <!----></span></button></div>
+            <div class="q-card-media relative-position"><img src="http://www.zaragoza.es/cont/paginas/actividades/imagen/web_320x480px.png"></div>
         </div>
-        <div class="q-card-main q-card-container">
-            <!---->
-            <div class="block"><strong>Lunes, 18 De Septiembre</strong> a las <strong>19:30 h.</strong></div> <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-secondary text-white"><div class="desktop-only q-focus-helper"></div> <!----> <span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon material-icons">event</i>  Add it to your calendar  <!----></span></button>
-            <div class="block">
-                <h4>SCBCN</h4> <span>BCN</span></div> <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-secondary text-white"><div class="desktop-only q-focus-helper"></div> <!----> <span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon material-icons">directions</i> How to get there?  <!----></span></button>            <br><br>
-            <div class="block">
-                Coding Stones cantando Joticas
-            </div> <button class="q-btn row inline flex-center q-focusable q-hoverable relative-position q-btn-rectangle q-btn-standard bg-secondary text-white"><div class="desktop-only q-focus-helper"></div> <!----> <span class="q-btn-inner row col flex-center"><!----> <i aria-hidden="true" class="q-icon material-icons">share</i> Share it with your friends  <!----></span></button></div>
-        <div class="q-card-media relative-position"><img src="http://www.zaragoza.es/cont/paginas/actividades/imagen/web_320x480px.png"></div>
     </div>
 </div>
 `;

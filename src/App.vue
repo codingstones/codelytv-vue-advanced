@@ -4,7 +4,8 @@
       <Toolbar slot="header" @drawerClick="clickDrawer()"></Toolbar>
       <SideBar slot="left"></SideBar>
       <q-transition
-        name="custom">
+        leave="fadeOut"
+        enter="fadeIn">
         <router-view class="layout-view"/>
       </q-transition>
    </q-layout>
@@ -33,18 +34,4 @@ export default {
 </script>
 
 <style>
-  .custom-enter-active {
-    transition: all .5s ease;
-    opacity: 0.5;
-  }
-  .custom-leave-active {
-    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-  }
-  .custom-enter, .custom-leave-to {
-    transform: translateX(100px);
-    opacity: 0;
-  }
-  striped {
-    color: yellow
-  }
 </style>
