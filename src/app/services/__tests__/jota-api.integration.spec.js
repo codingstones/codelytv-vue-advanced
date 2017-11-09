@@ -2,7 +2,7 @@ import { createGig, retrieveAGig, retrieveDays } from '../jota-api'
 import { isoToday } from '../date-utils'
 import { createGigPayload } from '../jota-payloads'
 
-describe('jota api', () => {
+xdescribe('jota api', () => {
 
   it('Returns valid gigs', async () => {
     const days = await retrieveDays()

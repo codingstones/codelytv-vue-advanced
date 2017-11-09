@@ -51,4 +51,10 @@ export default class NewGigPageObject extends PageObject {
   clickSaveButton() {
     this.wrapper.find(FormButton).trigger('click')
   }
+
+  fillForm(name, date) {
+    this.writeNameAsync(name)
+    this.writeDatetime(date)
+    this.wait()
+  }
 }

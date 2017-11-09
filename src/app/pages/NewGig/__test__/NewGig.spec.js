@@ -89,16 +89,12 @@ describe('New Gig', () => {
     })
 
     it('is disabled when form has errors', async () => {
-      page.writeNameAsync(tooShortName())
-      page.writeDatetime(PAST_DATETIME)
-      await page.wait()
+      await page.fillForm(tooShortName(), PAST_DATETIME)
       expect(page.isSaveButtonDisabled()).toBe(true)
     })
 
     it('is enabled when form is fully filled without errors', async () => {
-      page.writeNameAsync(nameWithValidLength())
-      page.writeDatetime(FUTURE_DATETIME)
-      await page.wait()
+      await page.fillForm(nameWithValidLength(), FUTURE_DATETIME)
       expect(page.isSaveButtonDisabled()).toBe(false)
     })
   })
@@ -112,9 +108,7 @@ describe('New Gig', () => {
 
       expect(store.state.days).toEqual({})
 
-      page.writeNameAsync(nameWithValidLength())
-      page.writeDatetime(FUTURE_DATETIME)
-      await page.wait()
+      await page.fillForm(nameWithValidLength(), FUTURE_DATETIME)
       page.clickSaveButton()
       await page.wait()
     })
@@ -149,4 +143,10 @@ function tooLongName() {
 
 function nameWithLength(length) {
   return 'x'.repeat(length)
+}
+
+function fillForm(name, date) {
+  this.writeNameAsync(name)
+  this.writeDatetime(date)
+  this.wait()
 }
