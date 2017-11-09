@@ -15,7 +15,7 @@ describe('Gigs Today', () => {
     FIRST_DAY_GIG_TITLES.map((text) => page.contains(text))
   })
 
-  it('renders all gigs in the first day', async () => {
+  it('renders no gigs message', async () => {
     stubNow('2017-09-17')
     page = await mountPage()
     page.contains("No gigs for today, why don't you go to the cinema?")

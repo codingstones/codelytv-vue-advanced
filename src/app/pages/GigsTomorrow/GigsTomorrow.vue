@@ -1,7 +1,7 @@
 <template>
     <div class="full-width">
         <Day :day="gigsTomorrow" v-if="gigsTomorrow"/>
-        <h4 v-else>No gigs for today, why don't you go to the cinema?</h4>
+        <h4 v-else>No gigs for tomorrow, why don't you go to the cinema?</h4>
     </div>
 </template>
 
