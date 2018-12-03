@@ -3,7 +3,7 @@
 exports[`Gig Detail matches snapshot 1`] = `
 <div>
     <!---->
-    <div class="full-width v-enter animated fadeIn" style="">
+    <div class="full-width" style="">
         <div class="q-card">
             <div class="q-card-primary q-card-container row no-wrap">
                 <div class="col column">

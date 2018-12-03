@@ -1,4 +1,4 @@
-import { mount } from 'vue-test-utils'
+import { mount } from '@vue/test-utils'
 import NewGig from '@/app/pages/NewGig/NewGig.vue'
 import NewGigPage from '../../../../__page_objects__/NewGigPageObject'
 import Vuex from 'vuex'
@@ -13,7 +13,7 @@ describe('New Gig', () => {
       state: {days: [], loading: false},
       actions: { create_gig: actionSpy }
     })
-    const wrapper = mount(NewGig, { store, router: new VueRouter() })
+    const wrapper = mount(NewGig, { sync: false, store, router: new VueRouter() })
     const page = new NewGigPage(wrapper, {store})
 
     page.writeNameAsync(nameWithValidLength())

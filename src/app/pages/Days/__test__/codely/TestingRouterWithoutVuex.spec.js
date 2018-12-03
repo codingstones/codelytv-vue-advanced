@@ -1,5 +1,5 @@
 import Day from '@/app/pages/Days/Day.vue'
-import { mount } from 'vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { FIRST_DAY } from '../../../../services/__mocks__/gigs-sample'
 import DayListPageObject from '../../../../__page_objects__/DayPageObject'
 

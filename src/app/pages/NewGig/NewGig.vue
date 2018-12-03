@@ -30,8 +30,6 @@
   import { mapActions, mapState } from 'vuex'
   import { CREATE_GIG } from '../../services/jota-commands'
   import { required, minLength, maxLength } from 'vuelidate/lib/validators'
-  import TextInput from '../../shared-components/TextInput.vue'
-  import DateTimeInput from '../../shared-components/DateTimeInput.vue'
   import { isFutureDatetime } from './customValidations'
   import { createGigPayload } from '../../services/jota-payloads'
 
@@ -80,9 +78,6 @@
           console.log('Error creating ', error)
         }
       }
-    },
-    components: {
-      TextInput, DateTimeInput
     }
   }
 </script>

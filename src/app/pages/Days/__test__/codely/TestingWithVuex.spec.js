@@ -1,4 +1,4 @@
-import { mount } from 'vue-test-utils'
+import { mount } from '@vue/test-utils'
 import Days from '@/app/pages/Days/Days.vue'
 import DayListPage from '../../../../__page_objects__/DaysPageObject'
 import { fakeGigsByDay, FIRST_DAY } from '../../../../services/__mocks__/gigs-sample'
