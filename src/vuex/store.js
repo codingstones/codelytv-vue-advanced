@@ -16,6 +16,14 @@ import { gigsToday, gigsTomorrow, numberOfGigsToday, numberOfGigsTomorrow } from
 
 Vue.use(Vuex)
 
+export const buildInitialState = () => {
+  return {
+    days: {},
+    error: false,
+    loading: false
+  }
+}
+
 export const initialState = {
   days: {},
   error: false,
@@ -44,9 +52,11 @@ export const getters = {
   paramId: state => state.route.params.id
 }
 
-export const store = new Vuex.Store({
-  state: initialState,
+export const storeDefinition = {
+  state: buildInitialState(),
   actions,
   mutations,
   getters
-})
+}
+
+export const store = new Vuex.Store(storeDefinition)

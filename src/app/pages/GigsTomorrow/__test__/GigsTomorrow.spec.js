@@ -1,30 +1,30 @@
-import { mount } from '@vue/test-utils'
 import GigsTomorrow from '@/app/pages/GigsTomorrow/GigsTomorrow.vue'
+import { storeDefinition } from '@/vuex/store'
+import { renderComponent } from '@test/render-utils'
+import { stubNow } from '../../../../../test/helpers'
 import { fakeGigsByDay, FIRST_DAY } from '../../../services/__mocks__/gigs-sample'
-import PageObject from '../../../__page_objects__/PageObject'
-import { cloneProductionStore, stubNow } from '../../../../../test/helpers'
 
 describe('Gigs Tomorrow', () => {
   const FIRST_DAY_GIG_TITLES = FIRST_DAY.gigs.map(gig => gig.title)
 
-  let page
-
   it('renders all gigs', async () => {
-    stubNow('2017-09-17')
-    page = await mountPage()
-    FIRST_DAY_GIG_TITLES.map((text) => page.contains(text))
+    stubNow('2017-09-18')
+    const screen = renderGigsTomorrow()
+    FIRST_DAY_GIG_TITLES.forEach(async text =>
+      expect(await screen.findByText(text)).toBeInTheDocument()
+    )
   })
 
   it('renders no gigs message', async () => {
     stubNow('2017-09-16')
-    page = await mountPage()
-    page.contains("No gigs for tomorrow, why don't you go to the cinema?")
+    const gigsTomorrow = renderGigsTomorrow()
+    expect(
+      await gigsTomorrow.findByText("No gigs for tomorrow, why don't you go to the cinema?")
+    ).toBeInTheDocument()
   })
 })
 
-async function mountPage() {
-  const store = cloneProductionStore()
-  store.state.days = fakeGigsByDay
-  const wrapper = mount(GigsTomorrow, {store})
-  return new PageObject(wrapper)
+function renderGigsTomorrow() {
+  storeDefinition.state.days = fakeGigsByDay
+  return renderComponent(GigsTomorrow, {store: storeDefinition})
 }

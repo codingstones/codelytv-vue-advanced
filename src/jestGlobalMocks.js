@@ -4,7 +4,7 @@ const mock = () => {
     getItem: key => key in storage ? storage[key] : null,
     setItem: (key, value) => storage[key] = value || '',
     removeItem: key => delete storage[key],
-    clear: () => storage = {},
+    clear: () => storage = {}
   }
 }
 
@@ -21,4 +21,3 @@ window.getComputedStyle = function(el1, el2) {
 }
 
 Object.defineProperty(window, 'localStorage', {value: mock()})
-

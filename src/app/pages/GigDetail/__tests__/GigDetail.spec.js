@@ -1,21 +1,18 @@
-import GigDetail from '@/app/pages/GigDetail/GigDetail.vue'
 import { FIRST_GIG } from '../../../services/__mocks__/gigs-sample'
-import { cloneProductionStore, Wrap } from '../../../../../test/helpers'
-import PageObject from '../../../__page_objects__/PageObject'
+import { renderComponent } from '@test/render-utils'
+import { storeDefinition } from '@/vuex/store'
+import { routes } from '@/router'
+import GigDetail from '@/app/pages/GigDetail/GigDetail.vue'
 
 jest.mock('@/app/services/jota-api')
 
-describe('Gig Detail', () => {
-
-  it('renders details from a Gig', async () => {
-    let store = cloneProductionStore()
-    const wrapper = Wrap(GigDetail)
-      .withStore(store)
-      .mount()
-    const page = new PageObject(wrapper)
-    await page.wait()
-
-    expect(wrapper.text()).toContain(FIRST_GIG.title)
-    expect(wrapper.text()).toContain(FIRST_GIG.place)
+it('renders details from a Gig', async () => {
+  storeDefinition.state.route = {params: {id: FIRST_GIG.id}}
+  const {findByText} = renderComponent(GigDetail, {
+    store: storeDefinition,
+    routes: routes,
   })
+
+  expect(await findByText(FIRST_GIG.title)).toBeInTheDocument()
+  expect(await findByText(FIRST_GIG.place)).toBeInTheDocument()
 })

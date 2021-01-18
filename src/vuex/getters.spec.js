@@ -8,7 +8,6 @@ import {
 } from './getters'
 
 describe('Vuex Getters', () => {
-
   const state = { days: fakeGigsByDay }
 
   describe('When Getting things by day', () => {

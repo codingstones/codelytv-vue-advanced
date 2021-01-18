@@ -13,11 +13,13 @@
 </template>
 
 <script>
+
+import Vue from 'vue'
 import { registerGlobalComponents } from './app/GlobalComponentsLoader'
 import { mapActions } from 'vuex'
 import { Loading } from 'quasar-framework'
 
-registerGlobalComponents()
+registerGlobalComponents(Vue)
 export default {
   methods: {
     ...mapActions(['retrieve_days']),

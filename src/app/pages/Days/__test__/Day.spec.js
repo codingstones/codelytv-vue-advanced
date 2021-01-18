@@ -1,41 +1,47 @@
 import Day from '@/app/pages/Days/Day.vue'
-import { FIRST_DAY } from '../../../services/__mocks__/gigs-sample'
-import { Wrap } from '../../../../../test/helpers'
-import DayListPageObject from '../../../__page_objects__/DayPageObject'
+import { storeDefinition } from '@/vuex/store'
+import { renderComponent } from '@test/render-utils'
+import userEvent from '@testing-library/user-event'
 import { localizedFromIso } from '../../../services/date-utils'
+import { FIRST_DAY } from '../../../services/__mocks__/gigs-sample'
 
-describe('Day', () => {
-
-  let page, wrapper
-  beforeEach(async () => {
-    wrapper = Wrap(Day)
-      .withProps({ day: FIRST_DAY, isLoading: false, onClick: jest.fn })
-      .mount()
-    page = new DayListPageObject(wrapper)
+it('renders gig date in spanish format', async() => {
+  const {findByText} = renderComponent(Day, {
+    store: storeDefinition,
+    props: { day: FIRST_DAY, isLoading: false, onClick: jest.fn() }
   })
 
-  it('renders gig date in spanish format', async() => {
-    page.contains(localizedFromIso(FIRST_DAY.date))
+  expect(await findByText(localizedFromIso(FIRST_DAY.date))).toBeInTheDocument()
+})
+
+describe('When clicking buttons', () => {
+  it('navigates to first gig detail', async () => {
+    const FIRST_GIG = FIRST_DAY.gigs[0]
+    const navigateToGigSpy = jest.fn()
+    const screen = renderDays({navigateToGig: navigateToGigSpy})
+
+    await screen.openGig(FIRST_GIG.title)
+
+    expect(navigateToGigSpy).toHaveBeenCalledWith(FIRST_GIG.id)
   })
 
-  describe('When clicking buttons', () => {
+  it('navigates to second gig detail', async () => {
+    const SECOND_GIG = FIRST_DAY.gigs[1]
+    const navigateToGigSpy = jest.fn()
+    const screen = renderDays({navigateToGig: navigateToGigSpy})
 
-    let navigateToGigSpy
-    beforeEach(async () => {
-      navigateToGigSpy = jest.fn()
-      page.setRouterSpy({ navigateToGig: navigateToGigSpy })
-    })
+    await screen.openGig(SECOND_GIG.title)
 
-    it('navigates to first gig detail', async () => {
-      const FIRST_GIG = FIRST_DAY.gigs[0]
-      page.clickFirstGig()
-      expect(navigateToGigSpy).toHaveBeenCalledWith(FIRST_GIG.id)
-    })
-
-    it('navigates to second gig detail', async () => {
-      const SECOND_GIG = FIRST_DAY.gigs[1]
-      page.clickSecondGig()
-      expect(navigateToGigSpy).toHaveBeenCalledWith(SECOND_GIG.id)
-    })
+    expect(navigateToGigSpy).toHaveBeenCalledWith(SECOND_GIG.id)
   })
 })
+
+function renderDays(jotaRouterInstance) {
+  const screen = renderComponent(Day, {
+    props: {day: FIRST_DAY, isLoading: false},
+    jotaRouter: () => jotaRouterInstance
+  })
+  const openGig = async title => userEvent.click((await screen.findByText(title)))
+
+  return {...screen, openGig}
+}

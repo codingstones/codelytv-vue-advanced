@@ -6,7 +6,6 @@ import { stubNow } from '../../../../test/helpers'
 import { fakeGigsByDay } from '../../../app/services/__mocks__/gigs-sample'
 
 describe('TodayGigs Getter', () => {
-
   const state = { days: fakeGigsByDay }
 
   it('Counts the Number of Gigs of today', () => {

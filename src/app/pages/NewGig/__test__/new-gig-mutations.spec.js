@@ -1,10 +1,9 @@
 import { createGigError, createGigRequest, createGigSuccess } from '../new-gig-mutations'
 import { fakeGigsByDay } from '../../../services/__mocks__/gigs-sample'
 import { stubNow } from '../../../../../test/helpers'
-import { Gig } from '../../../fake-backend/JotaCore';
+import { Gig } from '../../../fake-backend/JotaCore'
 
 describe('New gig mutations', () => {
-
   let state
   let OLD_DAYS
   beforeEach(() => {
@@ -13,7 +12,6 @@ describe('New gig mutations', () => {
   })
 
   describe('When creating a new gig', () => {
-
     it('starts request', () => {
       createGigRequest(state)
 
@@ -21,7 +19,6 @@ describe('New gig mutations', () => {
     })
 
     describe('It finishes with success', () => {
-
       it('and new day is created', () => {
         const NEW_GIG = aGig('2017-09-19')
 

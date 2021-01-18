@@ -6,7 +6,6 @@ import { fakeGigsByDay } from '../../../app/services/__mocks__/gigs-sample'
 import { stubNow } from '../../../../test/helpers'
 
 describe('Vuex Getters', () => {
-
   const state = {days: fakeGigsByDay}
 
   it('gets list of gigs for today', () => {

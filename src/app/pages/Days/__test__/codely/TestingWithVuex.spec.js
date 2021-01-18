@@ -1,19 +1,15 @@
-import { mount } from '@vue/test-utils'
 import Days from '@/app/pages/Days/Days.vue'
-import DayListPage from '../../../../__page_objects__/DaysPageObject'
+import { storeDefinition } from '@/vuex/store'
+import { renderComponent } from '@test/render-utils'
 import { fakeGigsByDay, FIRST_DAY } from '../../../../services/__mocks__/gigs-sample'
 
-describe('Days', () => {
-  const FIRST_DAY_GIG_TITLES = FIRST_DAY.gigs.map(gig => gig.title)
+const FIRST_DAY_GIG_TITLES = FIRST_DAY.gigs.map(gig => gig.title)
 
-  let page, wrapper
-  beforeEach(async () => {
-    const store = {state: { days: fakeGigsByDay }}
-    wrapper = mount(Days, { store })
-    page = new DayListPage(wrapper)
-  })
+it('renders all gigs in the first day', async() => {
+  storeDefinition.state.days = fakeGigsByDay
+  const screen = renderComponent(Days, { store: storeDefinition })
 
-  it('renders all gigs in the first day', async() => {
-    FIRST_DAY_GIG_TITLES.map((text) => page.contains(text))
+  FIRST_DAY_GIG_TITLES.forEach(async text => {
+    expect(await screen.findByText(text)).toBeInTheDocument()
   })
 })

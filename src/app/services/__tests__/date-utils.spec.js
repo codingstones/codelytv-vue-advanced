@@ -5,7 +5,6 @@ import {
 import { stubNow } from '../../../../test/helpers'
 
 describe('date utils', () => {
-
   beforeEach(() => stubNow('2017-09-02'))
 
   it('Prints today in ISO', () => {
@@ -17,7 +16,6 @@ describe('date utils', () => {
   })
 
   describe('When locale is english', () => {
-
     beforeEach(() => setLocale('en'))
 
     it('Prints todays date', () => {
@@ -30,7 +28,6 @@ describe('date utils', () => {
   })
 
   describe('When locale is spanish', () => {
-
     beforeEach(() => setLocale('es'))
 
     it('Prints todays date', () => {

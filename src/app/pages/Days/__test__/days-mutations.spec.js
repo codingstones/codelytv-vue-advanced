@@ -2,7 +2,6 @@
 import { fetchDaysError, fetchDaysRequest, fetchDaysSuccess } from '../days-mutations'
 
 describe('Days Mutations', () => {
-
   let state
   let OLD_DAYS
   beforeEach(() => {
@@ -11,7 +10,6 @@ describe('Days Mutations', () => {
   })
 
   describe('When fetching days', () => {
-
     it('starts request', () => {
       fetchDaysRequest(state)
 

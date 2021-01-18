@@ -9,7 +9,6 @@ Vue.use(Quasar)
 Vue.use(Vuex)
 
 describe('Vuex test helpers', () => {
-
   it('cloneProductionStore', async () => {
     let clonedStore = cloneProductionStore()
     clonedStore.state.days = { 'any date': 'ANY DAY' }

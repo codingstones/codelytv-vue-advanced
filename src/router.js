@@ -16,6 +16,16 @@ import GigsTomorrow from '@/app/pages/GigsTomorrow/GigsTomorrow'
 export const NEW_GIG_PATH = '/newGig'
 export const ALL_GIGS_PATH = '/all'
 
+export const routes = [
+  { path: '/', component: Days, title: 'root' },
+  { path: ALL_GIGS_PATH, component: Days, title: 'all' },
+  { path: '/today', component: GigsToday, title: 'today' },
+  { path: '/tomorrow', component: GigsTomorrow, title: 'tomorrow' },
+  { path: '/gig/:id', component: GigDetail, title: 'gig' },
+  { path: NEW_GIG_PATH, component: NewGig, title: 'newGig' },
+  { path: '*', component: load('Error404') }
+]
+
 const router = new VueRouter({
   /*
    * NOTE! VueRouter "history" mode DOESN'T works for Cordova builds,
@@ -29,16 +39,7 @@ const router = new VueRouter({
    * build publicPath back to '' so Cordova builds work again.
    */
   // mode: 'history',
-  routes:
-  [
-    { path: '/', component: Days, title: 'root' },
-    { path: ALL_GIGS_PATH, component: Days, title: 'all' },
-    { path: '/today', component: GigsToday, title: 'today' },
-    { path: '/tomorrow', component: GigsTomorrow, title: 'tomorrow' },
-    { path: '/gig/:id', component: GigDetail, title: 'gig' },
-    { path: NEW_GIG_PATH, component: NewGig, title: 'newGig' },
-    { path: '*', component: load('Error404') }
-  ],
+  routes,
   scrollBehavior (to, from, savedPosition) {
     return { x: 0, y: 0 }
   }

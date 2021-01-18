@@ -6,7 +6,6 @@ import { rejectedPromise, resolvedPromise } from '../../../../../test/helpers'
 import { retrieveDaysAction } from '../days-actions'
 
 describe('Days actions', () => {
-
   let action
   let commitSpy
   beforeEach(() => {
@@ -14,7 +13,6 @@ describe('Days actions', () => {
   })
 
   describe('Retrieving days action', () => {
-
     it('finishes with success', async () => {
       const DAYS = 'ANY DAYS'
       const retrieveDays = resolvedPromise(DAYS)
@@ -35,12 +33,12 @@ describe('Days actions', () => {
 
       try {
         await action.run({ commit: commitSpy })
-      } catch (error) {
+      }
+      catch (error) {
         expect(commitSpy).toHaveBeenCalledWith(FETCH_DAYS_REQUEST)
         expect(commitSpy).toHaveBeenCalledWith(FETCH_DAYS_ERROR, backendError)
         expect(error).toBe(backendError)
       }
-
     })
   })
 })
